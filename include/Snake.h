@@ -8,7 +8,9 @@ class Snake {
     public: 
         Snake();
         ~Snake();
+
+        void update();
+
     private:
         Bod* head;
-        Di
 };
