@@ -2,10 +2,10 @@
 
 #include "Direction.h"
 
-struct Vector2 {
+struct Pos {
     int x, y;
 
-    Vector2& operator+(Direction dir) {
+    Pos& operator+(Direction dir) {
         switch (dir) {
             case Direction::UP:
                 y--;

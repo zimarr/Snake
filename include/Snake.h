@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Vector2.h"
+#include "Pos.h"
 #include "Bod.h"
 #include "Direction.h"
 

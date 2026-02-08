@@ -1,10 +1,10 @@
 #pragma once
 
-#include "Vector2.h"
+#include "Pos.h"
 #include "Direction.h"
 
 struct Bod {
     Bod* next;
-    Vector2 pos;
+    Pos pos;
     Direction dir;
 };

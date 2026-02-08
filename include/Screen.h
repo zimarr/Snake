@@ -1,6 +1,7 @@
 #pragma once
 
-#include <SDL.h>
+#include <SDL/SDL.h>
+#include "Snake.h"
 
 class Screen {
     public:
@@ -8,7 +9,7 @@ class Screen {
         ~Screen() {};
 
         void init(const char title[], int x, int y, int w, int h, int flags);
-        void initTextures();
+        void init_textures();
 
         void loop();
         void handleEvents();
@@ -22,12 +23,11 @@ class Screen {
 
         SDL_Window *window;
         
-
         SDL_Renderer *rend;
 
-        SDL_Texture *board;
-        SDL_Texture *settingsbuttonclosed;
-        SDL_Texture *settingsbuttonopen;
+        // SDL_Texture *board;
+
+        Snake snake;
 
         bool running;
 };
