@@ -107,8 +107,10 @@ void Screen::init(const char title[], int x, int y, int w, int h, int flags) {
 }
 
 void Screen::handleEvents() {
-    // SDL_Event e;
-    // SDL_PollEvent(&e);
+    SDL_Event e;
+    SDL_PollEvent(&e);
+
+    snake.handle_events(e);
 
     // if (e.type == SDL_QUIT) {
     //     running = false;

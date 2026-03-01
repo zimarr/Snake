@@ -14,8 +14,11 @@ class Snake {
 
         void draw(SDL_Renderer *rend);
 
+        void handle_events(SDL_Event e);
+
     private:
-        Bod* head;
+        Bod *head;
+        Bod *tail;
 
         int board_width, board_height;
 };

@@ -4,7 +4,8 @@
 #include "Direction.h"
 
 struct Bod {
-    Bod* next;
+    Bod *back;
+    Bod *front;
     Pos pos;
     Direction dir;
 };
