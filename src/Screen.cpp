@@ -15,11 +15,20 @@ void Screen::loop() {
     int frameStart;
     int frameTime;
 
+    const int UPDATE_DELAY = 500;
+    static Uint32 lastUpdate = 0;
+
     while(running) {        
         frameStart = SDL_GetTicks();
 
-        handleEvents();
-        snake.update();
+        handleEvents();        
+
+        Uint32 now = SDL_GetTicks();
+        if (now - lastUpdate >= UPDATE_DELAY) {
+            snake.update();
+            lastUpdate = now;
+        }
+
         draw();        
 
         frameTime = SDL_GetTicks() - frameStart;
@@ -33,13 +42,13 @@ void Screen::loop() {
 }
 
 void Screen::draw() {
-    // SDL_SetRenderDrawColor(rend, 255, 255, 255, 255);
-    // SDL_RenderClear(rend);
+    SDL_SetRenderDrawColor(rend, 255, 255, 255, 255);
+    SDL_RenderClear(rend);
 
     // SDL_Rect destRect{0, 0, 800, 800};
     // SDL_RenderCopy(rend, board, NULL, &destRect);
 
-    // snake.draw(rend, 0, panel.isShowMovesEnabled());
+    snake.draw(rend);
 
     // SDL_Rect settingsrect{panel.getWidth(), 0, 50, 50};
     
@@ -51,7 +60,7 @@ void Screen::draw() {
     
     // panel.draw(rend);
 
-    // SDL_RenderPresent(rend);
+    SDL_RenderPresent(rend);
 }
 
 void Screen::init(const char title[], int x, int y, int w, int h, int flags) {

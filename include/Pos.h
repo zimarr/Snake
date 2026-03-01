@@ -23,5 +23,9 @@ struct Pos {
         
         return *this;
     }
+
+    Pos& operator+=(Direction dir) {
+        return *this + dir;
+    }
 };
 
